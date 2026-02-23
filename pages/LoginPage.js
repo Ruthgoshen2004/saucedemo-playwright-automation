@@ -1,26 +1,19 @@
-import { urls } from '../data/urls'
-
-
 export class LoginPage {
+  constructor(page) {
+    this.page = page
+    this.userNameField = page.locator('[data-test="username"]')
+    this.userPasswordField = page.locator('[data-test="password"]')
+    this.loginButton = page.locator('[data-test="login-button"]')
+    this.errorMessage = page.locator('[data-test="error"]')
+  }
 
-    userNameField = '[data-test="username"]'
-    userPasswordField = '[data-test="password"]'
-    loginButtom = '[data-test="login-button"]'
+  async openLoginPage() {
+    await this.page.goto('/')
+  }
 
-    constructor(page) {
-        this.page = page
-        this.errorMessage = page.locator('[data-test="error"]')
-
-    }
-
-    async openLoginPage() {
-        await this.page.goto(urls.base)
-    }
-
-    async login(username, password) {
-        await this.page.locator(this.userNameField).fill(username)
-        await this.page.locator(this.userPasswordField).fill(password)
-        await this.page.locator(this.loginButtom).click()
-    }
-
+  async login(username, password) {
+    await this.userNameField.fill(username)
+    await this.userPasswordField.fill(password)
+    await this.loginButton.click()
+  }
 }

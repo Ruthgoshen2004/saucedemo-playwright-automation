@@ -1,25 +1,19 @@
-
-
 export class YourInformationPage {
+  constructor(page) {
+    this.page = page
+    this.firstNameField = page.locator('[data-test="firstName"]')
+    this.lastNameField = page.locator('[data-test="lastName"]')
+    this.postalCode = page.locator('[data-test="postalCode"]')
+    this.continueButton = page.locator('[data-test="continue"]')
+  }
 
+  async fillCheckoutInformation(firstNameField, lastNameField, postalCode) {
+    await this.firstNameField.fill(firstNameField)
+    await this.lastNameField.fill(lastNameField)
+    await this.postalCode.fill(postalCode)
+  }
 
-   FirstNameField = '[data-test="firstName"]'
-   LastNameField = '[data-test="last-name"]'
-   PostalCode = '[data-test="postalCode"]'
-   ContinueButton = '[data-test="continue"]'
-
-   constructor(page) {
-      this.page = page
-   }
-
-   async fillCheckoutInformation(firstNameField, lastNameField, postalCode) {
-      await this.page.locator(this.FirstNameField).fill(firstNameField)
-      await this.page.locator(this.LastNameField).fill(lastNameField)
-      await this.page.locator(this.PostalCode).fill(postalCode)
-   }
-
-   async continueButton() {
-      await this.page.locator(this.ContinueButton).click()
-   }
-
+  async continueButton() {
+    await this.continueButton.click()
+  }
 }
