@@ -5,6 +5,7 @@ export class YourInformationPage {
     this.lastNameField = page.locator('[data-test="lastName"]')
     this.postalCode = page.locator('[data-test="postalCode"]')
     this.continueButton = page.locator('[data-test="continue"]')
+    this.title= page.locator('[data-test="title"]')
   }
 
   async fillCheckoutInformation(firstNameField, lastNameField, postalCode) {

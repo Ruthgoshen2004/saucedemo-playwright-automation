@@ -14,3 +14,8 @@ export const Negative_users = [
   {username: 'visual_user', password: ''},
   {username: '', password: ''},
 ]
+ export const checkoutUser = {
+  firstName: 'ruth',
+  lastName: 'goshen',
+  postalCode: '3237417',
+}
