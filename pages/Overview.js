@@ -1,16 +1,10 @@
-
-
 export class Overview {
-  FinishButton = '[data-test="finish"]'
-
-
   constructor(page) {
     this.page = page
+    this.finishButton = page.locator('[data-test="finish"]')
   }
 
-  async finishButton() {
-    await this.page.locator(this.FinishButton).click()
+  async clickFinishButton() {
+    await this.finishButton.click()
   }
-
-
 }
